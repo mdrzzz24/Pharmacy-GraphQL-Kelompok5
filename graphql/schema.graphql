@@ -1,0 +1,18 @@
+type Query {
+    SemuaObat: [Obat!] @all
+    ObatByID(id: ID@eq): Obat @find
+}
+
+type Mutation {
+    addObat(nama:String!, harga:Int, stok:Int): Obat! @create
+    updateObat(id:ID!, harga:Int, stok:Int): Obat! @update
+    deleteObat(id:ID! @whereKey): Obat @delete
+}
+
+type Obat{
+    id: ID
+    nama: String
+    harga: Int
+    stok: Int
+}
+
